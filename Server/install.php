@@ -15,11 +15,11 @@
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		if (isset($_POST['db_name']) and isset($_POST['db_user']) and isset($_POST['db_password']) and isset($_POST['username']) and isset($_POST['password'])) {
 
-			$db_name = trim($_POST['db_name']);
-			$db_user = trim($_POST['db_user']);
-			$db_password = trim($_POST['db_password']);
-			$username = $_POST['username'];
-			$password = $_POST['password'];
+			$db_name = htmlspecialchars($_POST['db_name']);
+			$db_user = htmlspecialchars($_POST['db_user']);
+			$db_password = htmlspecialchars(mysql_real_escape_string($_POST['db_password']));
+			$username = htmlspecialchars(mysql_real_escape_string($_POST['username']));
+			$password = mysql_real_escape_string($_POST['password']);
 
 			include 'database/include.php';
 
