@@ -19,8 +19,8 @@
 
 			$db_name = htmlspecialchars($_POST['db_name']);
 			$db_user = htmlspecialchars($_POST['db_user']);
-			$db_password = htmlspecialchars(($_POST['db_password']));
-			$username = htmlspecialchars(($_POST['username']));
+			$db_password = htmlspecialchars($_POST['db_password']);
+			$username = htmlspecialchars($_POST['username']);
 			$password = $_POST['password'];
 
 			include 'database/include.php';
