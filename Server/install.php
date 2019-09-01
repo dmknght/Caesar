@@ -21,7 +21,7 @@
 			$db_user = htmlspecialchars($_POST['db_user']);
 			$db_password = htmlspecialchars(($_POST['db_password']));
 			$username = htmlspecialchars(($_POST['username']));
-			$password = mysql_real_escape_string($_POST['password']);
+			$password = $_POST['password'];
 
 			include 'database/include.php';
 
