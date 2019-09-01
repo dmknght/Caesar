@@ -25,8 +25,8 @@
 		if (isset($_POST['username']) and isset($_POST['password'])) {
 			include 'database/connection.php';
 
-			$username = trim($_POST['username']);
-			$password = $_POST['password'];
+			$username = trim(mysql_real_escape_string($_POST['username']));
+			$password = mysql_real_escape_string($_POST['password']);
 
 			$db_password = $db -> table('users') -> columns('password') -> eq('username', $username) -> findAll();
 
