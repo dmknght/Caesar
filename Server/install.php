@@ -9,7 +9,9 @@
 
 		This project is released under the GPL 3 license.
 	*/
-
+	if (file_exists('database/config.php')) {
+		exit;
+	}
 	use PicoDb\Database;
 
 	if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -17,8 +19,8 @@
 
 			$db_name = htmlspecialchars($_POST['db_name']);
 			$db_user = htmlspecialchars($_POST['db_user']);
-			$db_password = htmlspecialchars(mysql_real_escape_string($_POST['db_password']));
-			$username = htmlspecialchars(mysql_real_escape_string($_POST['username']));
+			$db_password = htmlspecialchars(($_POST['db_password']));
+			$username = htmlspecialchars(($_POST['username']));
 			$password = mysql_real_escape_string($_POST['password']);
 
 			include 'database/include.php';

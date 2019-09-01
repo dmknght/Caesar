@@ -13,11 +13,14 @@
 	// If user is logged in
 	if (isset($_SESSION['username'])) {
 		header ('Location: shell.php');
+		exit;
 	
 	// if the database has not been installed yet
 	} else if (!file_exists('database/config.php')) {
 		header ('Location: install.php');
+		exit;
 	
 	} else {
 		header ('Location: login.php');
+		exit;
 	}

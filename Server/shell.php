@@ -15,6 +15,7 @@
 	// If user is not logged in
 	if (!isset($_SESSION['username'])) 
 		header ('Location: login.php');
+		exit;
 	else
 		$_SESSION['csrf_token'] = md5(uniqid(rand(), TRUE));
 	

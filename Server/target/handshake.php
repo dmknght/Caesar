@@ -17,14 +17,14 @@
 		// If the request is valid
 		if (isset($_POST['hostname'], $_POST['username'], $_POST['os'], $_POST['arch'], $_POST['unique_id'], $_POST['wd'])) {
 
-			$hostname = urldecode($_POST['hostname']);
-			$username = urldecode($_POST['username']);
-			$os = urldecode($_POST['os']);
-			$arch = $_POST['arch'];
-			$unique_id = $_POST['unique_id'];
-			$working_directory = urldecode($_POST['wd']);
-			$ip = $_SERVER['REMOTE_ADDR'];
-			$datetime = date("Y-m-d H:i:s");
+			$hostname = htmlspecialchars(mysql_real_escape_string(urldecode($_POST['hostname'])));
+			$username = htmlspecialchars(mysql_real_escape_string(urldecode($_POST['username'])));
+			$os = htmlspecialchars(mysql_real_escape_string(urldecode($_POST['os'])));
+			$arch = htmlspecialchars(mysql_real_escape_string($_POST['arch']));
+			$unique_id = htmlspecialchars(mysql_real_escape_string($_POST['unique_id']));
+			$working_directory = htmlspecialchars(mysql_real_escape_string(urldecode($_POST['wd'])));
+			$ip = htmlspecialchars(mysql_real_escape_string($_SERVER['REMOTE_ADDR']));
+			$datetime = htmlspecialchars(mysql_real_escape_string(date("Y-m-d H:i:s")));
 
 			// If the user is not trying to alter the unique id (checking if the md5 string is valid)
 			if (!preg_match('/[^A-Za-z0-9]/', $unique_id) || strlen($unique_id) != 32) {

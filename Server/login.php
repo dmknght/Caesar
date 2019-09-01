@@ -19,6 +19,7 @@
 	// else if Caesar has not been installed yet
 	} else if (!file_exists('database/config.php')) {
 		header ('Location: install.php');
+		exit;
 
 	// Otherwise if the user sent a login request 
 	} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
